@@ -23,7 +23,7 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
     }
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("/ws")
+        registry.addEndpoint("/notifications")
                 .withSockJS()
                 .setHeartbeatTime(1000)
     }
