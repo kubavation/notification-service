@@ -1,5 +1,6 @@
 package com.durys.jakub.notificationservice.external
 
+import com.durys.jakub.notificationservice.external.accessmanagement.AccessManagementServiceClient
 import com.durys.jakub.notificationservice.external.mail.MailServiceClient
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.cloud.client.loadbalancer.LoadBalanced
@@ -20,4 +21,9 @@ internal class ExternalClientConfiguration {
     @Bean
     @LoadBalanced
     fun accessManagementWebClient(): WebClient.Builder = WebClient.builder().baseUrl("http://ACCESS-MANAGEMENT")
+
+    @Bean
+    fun accessManagementServiceClient(@Qualifier("accessManagementWebClient") webClient: WebClient.Builder): AccessManagementServiceClient
+            = AccessManagementServiceClient(webClient.build())
+
 }
