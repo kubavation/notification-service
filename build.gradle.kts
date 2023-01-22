@@ -27,8 +27,10 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-reactor-netty")
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("io.netty:netty-all")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
+
 
 dependencyManagement {
 	imports {
