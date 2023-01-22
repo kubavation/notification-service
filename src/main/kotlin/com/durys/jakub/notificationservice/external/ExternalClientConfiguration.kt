@@ -15,5 +15,5 @@ internal class ExternalClientConfiguration {
     fun mailWebClient(): WebClient.Builder = WebClient.builder().baseUrl("http://MAIL-SERVICE")
 
     @Bean
-    fun mailServiceClient(@Qualifier("mailWebClient") webClient: WebClient.Builder): MailServiceClient = MailServiceClient(webClient)
+    fun mailServiceClient(@Qualifier("mailWebClient") webClient: WebClient.Builder): MailServiceClient = MailServiceClient(webClient.build())
 }
