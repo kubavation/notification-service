@@ -6,7 +6,7 @@ import org.springframework.web.reactive.function.client.WebClient
 internal class MailServiceClient(private val webClient: WebClient) {
 
     fun send(mail: Mail) {
-        this.webClient
+        webClient
             .post()
             .uri("/mails")
             .body(BodyInserters.fromValue(mail))
