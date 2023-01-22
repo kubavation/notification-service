@@ -24,6 +24,9 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 	implementation("org.springframework.boot:spring-boot-starter-websocket")
+	implementation("org.springframework.boot:spring-boot-starter-reactor-netty")
+	implementation("org.springframework.boot:spring-boot-starter-amqp")
+	implementation("io.netty:netty-all")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 

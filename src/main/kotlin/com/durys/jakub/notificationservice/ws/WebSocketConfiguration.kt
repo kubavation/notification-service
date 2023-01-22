@@ -17,7 +17,7 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
             .setApplicationDestinationPrefixes("/notification-service")
             .enableStompBrokerRelay("/notifications")
             .setRelayHost("localhost")
-            .setRelayPort(61613)
+            .setRelayPort(5672)
             .setClientLogin("guest")
             .setClientPasscode("guest")
     }
