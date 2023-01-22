@@ -16,4 +16,8 @@ internal class ExternalClientConfiguration {
 
     @Bean
     fun mailServiceClient(@Qualifier("mailWebClient") webClient: WebClient.Builder): MailServiceClient = MailServiceClient(webClient.build())
+
+    @Bean
+    @LoadBalanced
+    fun accessManagementWebClient(): WebClient.Builder = WebClient.builder().baseUrl("http://ACCESS-MANAGEMENT")
 }
