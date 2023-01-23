@@ -14,11 +14,11 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {
         registry
             .setApplicationDestinationPrefixes("/app")
-            .enableStompBrokerRelay("/topic/", "/queue/")
-                .setRelayHost("localhost")
-                .setRelayPort(5672)
-                .setClientLogin("guest")
-                .setClientPasscode("guest")
+            .enableSimpleBroker("/topic/", "/queue/")
+//                .setRelayHost("localhost")
+//                .setRelayPort(5672)
+//                .setClientLogin("guest")
+//                .setClientPasscode("guest")
     }
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
