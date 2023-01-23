@@ -10,6 +10,7 @@ internal class NotificationListener(private val messagingTemplate: SimpMessaging
 
     @RabbitListener(queues = ["q.notification-queue"])
     fun listen(notification: Notification) {
+
         messagingTemplate.convertAndSend("/topic/notifications", notification)
     }
 }

@@ -6,10 +6,10 @@ import reactor.core.publisher.Mono
 
 internal class AccessManagementServiceClient(private val webClient: WebClient) {
 
-    fun receiverEmail(tenantId: TenantId): Mono<String> {
+    fun receiverEmail(tenantId: TenantId?): Mono<String> {
         return webClient
                 .get()
-                .uri("/users/%s/info".format(tenantId.value))
+                .uri("/users/%s/info".format(tenantId?.value))
                 .retrieve()
                 .bodyToMono(Receiver::class.java)
                 .map { it.email }

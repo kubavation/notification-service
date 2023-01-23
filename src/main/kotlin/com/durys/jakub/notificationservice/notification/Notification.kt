@@ -1,6 +1,6 @@
 package com.durys.jakub.notificationservice.notification
 
-class Notification(val tenantId: TenantId, val subject: String, val content: String) {
+class Notification(val tenantId: TenantId? = null, val subject: String? = null, val content: String? = null) {
     var withEmail = false
     var url = "";
 
