@@ -8,7 +8,6 @@ import org.springframework.web.socket.config.annotation.StompEndpointRegistry
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer
 
 @Configuration
-@EnableScheduling
 @EnableWebSocketMessageBroker
 internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
 
