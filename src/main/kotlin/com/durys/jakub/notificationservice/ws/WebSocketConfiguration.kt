@@ -24,7 +24,7 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
         registry
                 .addEndpoint("/notifications")
-                .setAllowedOrigins("*")
+                .setAllowedOriginPatterns("*")
                 .withSockJS()
                 .setHeartbeatTime(1000)
     }
