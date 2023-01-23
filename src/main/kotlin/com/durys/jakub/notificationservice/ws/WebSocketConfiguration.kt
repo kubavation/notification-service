@@ -13,16 +13,18 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
 
     override fun configureMessageBroker(registry: MessageBrokerRegistry) {
         registry
-            .setApplicationDestinationPrefixes("/notification-service")
-            .enableStompBrokerRelay("/notifications")
-            .setRelayHost("localhost")
-            .setRelayPort(5672)
-            .setClientLogin("guest")
-            .setClientPasscode("guest")
+            .setApplicationDestinationPrefixes("/app")
+            .enableStompBrokerRelay("/topic/", "/queue/")
+                .setRelayHost("localhost")
+                .setRelayPort(5672)
+                .setClientLogin("guest")
+                .setClientPasscode("guest")
     }
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("/notifications")
+        registry
+                .addEndpoint("/notifications")
+                .setAllowedOrigins("*")
                 .withSockJS()
                 .setHeartbeatTime(1000)
     }
