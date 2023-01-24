@@ -28,6 +28,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("io.netty:netty-all")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
