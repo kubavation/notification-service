@@ -18,7 +18,7 @@ internal class NotificationListener(
     fun listen(notification: Notification) {
 
         logger.info {
-            "got notification for tenantId: ${notification.tenantId?.value} (with email: ${notification.withEmail}"
+            "got notification for tenantId: ${notification.tenantId?.value} (with email: ${notification.withEmail})"
         }
 
         messagingTemplate.convertAndSend("/topic/notifications", notification)
