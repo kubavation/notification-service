@@ -1,12 +1,11 @@
 package com.durys.jakub.notificationservice.application
 
-import com.durys.jakub.notificationservice.notification.Notification
+import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.NotificationService
 import mu.KotlinLogging
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
-import java.util.Objects
 
 private val logger = KotlinLogging.logger {}
 
@@ -16,18 +15,18 @@ internal class NotificationListener(
         private val notificationService: NotificationService) {
 
     @RabbitListener(queues = ["q.notification-queue"])
-    fun listen(notification: Notification) {
+    fun listen(notificationDTO: NotificationDTO) {
 
         logger.info {
-            "got notification for tenantId: ${notification.tenantId?.value} (with email: ${notification.withEmail})"
+            "got notification for tenantId: ${notificationDTO.tenantId?.value} (with email: ${notificationDTO.withEmail})"
         }
 
-        notification.tenantId?.let {
+        notificationDTO.tenantId?.let {
 
-            messagingTemplate.convertAndSend("/topic/notifications", notification)
+            messagingTemplate.convertAndSend("/topic/notifications", notificationDTO)
 
-            if (notification.withEmail) {
-                notificationService.process(notification)
+            if (notificationDTO.withEmail) {
+                notificationService.process(notificationDTO)
             }
         }
 

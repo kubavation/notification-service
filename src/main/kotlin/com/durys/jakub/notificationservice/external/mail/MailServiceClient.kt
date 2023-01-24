@@ -1,5 +1,6 @@
 package com.durys.jakub.notificationservice.external.mail
 
+import mu.KotlinLogging
 import org.springframework.web.reactive.function.BodyInserters
 import org.springframework.web.reactive.function.client.ClientResponse
 import org.springframework.web.reactive.function.client.WebClient
