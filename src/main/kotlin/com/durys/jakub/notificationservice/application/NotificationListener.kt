@@ -21,9 +21,10 @@ internal class NotificationListener(
             "got notification for tenantId: ${notificationDTO.tenantId?.value} (with email: ${notificationDTO.withEmail})"
         }
 
-        notificationDTO.tenantId?.let {
+        notificationDTO.tenantId?.value?.let {
 
-            messagingTemplate.convertAndSend("/topic/notifications", notificationDTO)
+            messagingTemplate
+                    .convertAndSendToUser(notificationDTO.tenantId.value, "/topic/notifications", notificationDTO)
 
             if (notificationDTO.withEmail) {
                 notificationService.process(notificationDTO)
