@@ -29,6 +29,7 @@ dependencies {
 	implementation("io.netty:netty-all")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
+	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
