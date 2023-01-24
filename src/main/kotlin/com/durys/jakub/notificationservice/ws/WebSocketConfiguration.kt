@@ -15,7 +15,7 @@ internal class WebSocketConfiguration: WebSocketMessageBrokerConfigurer {
         registry
             .setApplicationDestinationPrefixes("/app")
             .setUserDestinationPrefix("/tenant")
-            .enableSimpleBroker("/topic/", "/queue/")
+            .enableSimpleBroker("/tenant")
     }
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {

@@ -24,7 +24,7 @@ internal class NotificationListener(
         notificationDTO.tenantId?.value?.let {
 
             messagingTemplate
-                    .convertAndSendToUser(notificationDTO.tenantId.value, "/topic/notifications", notificationDTO)
+                    .convertAndSendToUser(notificationDTO.tenantId.value, "/queue/notifications", notificationDTO)
 
             if (notificationDTO.withEmail) {
                 notificationService.process(notificationDTO)
