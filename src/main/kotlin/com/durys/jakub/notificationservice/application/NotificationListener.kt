@@ -6,6 +6,7 @@ import mu.KotlinLogging
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
+import java.util.Objects
 
 private val logger = KotlinLogging.logger {}
 
@@ -21,10 +22,14 @@ internal class NotificationListener(
             "got notification for tenantId: ${notification.tenantId?.value} (with email: ${notification.withEmail})"
         }
 
-        messagingTemplate.convertAndSend("/topic/notifications", notification)
+        notification.tenantId?.let {
 
-        if (notification.withEmail) {
-            notificationService.process(notification)
+            messagingTemplate.convertAndSend("/topic/notifications", notification)
+
+            if (notification.withEmail) {
+                notificationService.process(notification)
+            }
         }
+
     }
 }
