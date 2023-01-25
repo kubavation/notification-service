@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document
 class Notification(@Id val id: String,
-                   val tenantId: TenantId,
+                   val tenantId: String,
                    val subject: String,
                    val content: String,
-                   val type: List<NotificationType>)
+                   val types: List<NotificationType>)
