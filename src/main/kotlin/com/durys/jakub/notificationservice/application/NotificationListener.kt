@@ -21,7 +21,7 @@ internal class NotificationListener(
     fun listen(notificationDTO: NotificationDTO) {
 
         logger.info {
-            "got notification for tenantId: ${notificationDTO.tenantId?.value} with type: ${notificationDTO.type})"
+            "got notification for tenantId: ${notificationDTO.tenantId?.value} with types: ${notificationDTO.types})"
         }
 
         notificationDTO.tenantId?.value?.let {
@@ -29,7 +29,7 @@ internal class NotificationListener(
             messagingTemplate
                     .convertAndSendToUser(notificationDTO.tenantId.value, "/queue/notifications", notificationDTO)
 
-            if (notificationDTO.type.contains(NotificationType.EMAIL)) {
+            if (notificationDTO ofType NotificationType.EMAIL) {
                 notificationService.process(notificationDTO)
             }
         }
