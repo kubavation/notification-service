@@ -33,7 +33,7 @@ internal class NotificationListener(
                     .convertAndSendToUser(notificationDTO.tenantId.value, "/queue/notifications", notificationDTO)
 
             if (notificationDTO ofType NotificationType.EMAIL) {
-                notificationService.process(notificationDTO)
+                notificationService.processEmail(notificationDTO)
             }
         }
 

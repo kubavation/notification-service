@@ -16,7 +16,7 @@ internal class NotificationService(val mailServiceClient: MailServiceClient,
                                    val accessManagementServiceClient: AccessManagementServiceClient) {
 
 
-    fun process(notificationDTO: NotificationDTO) {
+    fun processEmail(notificationDTO: NotificationDTO) {
         accessManagementServiceClient.receiverEmail(notificationDTO.tenantId)
                 .map { Mail(notificationDTO.subject, notificationDTO.content, it) }
                 .flatMap { mailServiceClient.send(it) }
