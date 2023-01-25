@@ -1,5 +1,6 @@
 package com.durys.jakub.notificationservice.application
 
+import com.durys.jakub.notificationservice.commons.NotificationAssembler
 import com.durys.jakub.notificationservice.infrastructure.NotificationRepository
 import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.NotificationService
@@ -25,6 +26,8 @@ internal class NotificationListener(
         }
 
         notificationDTO.tenantId?.value?.let {
+
+            notificationRepository.save(NotificationAssembler.toEntity(notificationDTO))
 
             messagingTemplate
                     .convertAndSendToUser(notificationDTO.tenantId.value, "/queue/notifications", notificationDTO)
