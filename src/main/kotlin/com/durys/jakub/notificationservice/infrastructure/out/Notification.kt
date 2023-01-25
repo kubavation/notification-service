@@ -10,5 +10,4 @@ class Notification(@Id val id: String,
                    val tenantId: TenantId,
                    val subject: String,
                    val content: String,
-                   val type: List<NotificationType>) {
-}
+                   val type: List<NotificationType>)
