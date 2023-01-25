@@ -1,7 +1,6 @@
 package com.durys.jakub.notificationservice.infrastructure.out
 
 import com.durys.jakub.notificationservice.notification.NotificationType
-import com.durys.jakub.notificationservice.notification.TenantId
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
@@ -10,4 +9,8 @@ class Notification(@Id val id: String,
                    val tenantId: String,
                    val subject: String,
                    val content: String,
-                   val types: List<NotificationType>)
+                   val types: List<NotificationType>) {
+
+    var status: NotificationStatus = NotificationStatus.ACTIVE
+
+}
