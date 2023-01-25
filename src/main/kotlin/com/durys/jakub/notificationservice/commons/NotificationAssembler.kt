@@ -7,6 +7,6 @@ import java.util.UUID
 object NotificationAssembler {
 
     fun toEntity(dto: NotificationDTO): Notification {
-        return Notification(UUID.randomUUID().toString(), dto.tenantId!!, dto.subject!!, dto.content!!, dto.types)
+        return Notification(UUID.randomUUID().toString(), dto.tenantId?.value!!, dto.subject!!, dto.content!!, dto.types)
     }
 }
