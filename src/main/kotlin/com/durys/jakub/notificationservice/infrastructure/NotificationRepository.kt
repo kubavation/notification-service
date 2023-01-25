@@ -9,8 +9,8 @@ import org.springframework.data.mongodb.repository.Query
 interface NotificationRepository: MongoRepository<Notification, String> {
 
     @Query("{'tenantId' : ?0}")
-    fun findAllByTenant(tenantId: String, sort: Sort)
+    fun findAllByTenant(tenantId: String, sort: Sort): List<Notification>
 
     @Query("{'tenantId' : ?0, 'status' : ?1}")
-    fun findAllByTenantAndStatus(tenantId: String, status: NotificationStatus, sort: Sort)
+    fun findAllByTenantAndStatus(tenantId: String, status: NotificationStatus, sort: Sort): List<Notification>
 }
