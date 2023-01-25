@@ -8,6 +8,7 @@ import com.durys.jakub.notificationservice.infrastructure.NotificationRepository
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 internal class NotificationService(val mailServiceClient: MailServiceClient,
@@ -31,5 +32,12 @@ internal class NotificationService(val mailServiceClient: MailServiceClient,
     fun findAllByTenantId(tenantId: String): List<NotificationDTO> {
         return notificationRepository.findAllByTenant(tenantId, Sort.by(Sort.Direction.DESC,"creationDate"))
                 .map { NotificationAssembler.toDTO(it) }
+    }
+
+    @Transactional
+    fun markAsInactive(notifications: List<NotificationDTO>) {
+       val entities = notificationRepository.findAllById(notifications.map { it.id }.toList())
+               .map { e -> e.withStatus(NotificationStatus.INACTIVE) }
+        notificationRepository.saveAll(entities)
     }
 }
