@@ -40,4 +40,11 @@ internal class NotificationService(val mailServiceClient: MailServiceClient,
                .map { e -> e.withStatus(NotificationStatus.INACTIVE) }
         notificationRepository.saveAll(entities)
     }
+
+    @Transactional
+    fun markAsDeleted(notifications: List<NotificationDTO>) {
+        val entities = notificationRepository.findAllById(notifications.map { it.id }.toList())
+                .map { e -> e.withStatus(NotificationStatus.DELETED) }
+        notificationRepository.saveAll(entities)
+    }
 }
