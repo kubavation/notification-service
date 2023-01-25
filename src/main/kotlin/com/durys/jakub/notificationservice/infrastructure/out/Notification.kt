@@ -15,4 +15,9 @@ class Notification(@Id val id: String,
     var status: NotificationStatus = NotificationStatus.ACTIVE
     val creationDate: LocalDateTime = LocalDateTime.now()
 
+    fun withStatus(status: NotificationStatus): Notification {
+        this.status = status
+        return this
+    }
+
 }
