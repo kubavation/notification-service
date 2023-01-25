@@ -7,9 +7,9 @@ class NotificationDTO(val tenantId: TenantId? = null,
                       val content: String? = null,
                       val types: List<NotificationType> = listOf(NotificationType.APP)) {
 
-    var id = null;
+    var id: String = "";
     var status: NotificationStatus = NotificationStatus.ACTIVE
-    var url = "";
+    var url = ""
 
     fun withUrl(value: String): NotificationDTO {
         this.url = value
