@@ -26,15 +26,8 @@ internal class NotificationListener(
         }
 
         notificationDTO.tenantId?.value?.let {
-
-            notificationRepository.save(NotificationAssembler.toEntity(notificationDTO))
-
-            messagingTemplate
-                    .convertAndSendToUser(notificationDTO.tenantId.value, "/queue/notifications", notificationDTO)
-
-            if (notificationDTO ofType NotificationType.EMAIL) {
-                notificationService.processEmail(notificationDTO)
-            }
+            val entity = notificationRepository.save(NotificationAssembler.toEntity(notificationDTO))
+            notificationService.process(entity);
         }
 
     }
