@@ -1,8 +1,10 @@
 package com.durys.jakub.notificationservice.notification.deliverystrategies
 
 import com.durys.jakub.notificationservice.infrastructure.out.Notification
+import org.springframework.stereotype.Service
 
-internal class SmSNotificationDeliveryStrategy(): NotificationDeliveryStrategy {
+@Service
+internal class SmsNotificationDeliveryStrategy(): NotificationDeliveryStrategy {
 
     override fun deliver(notification: Notification) {
         TODO()

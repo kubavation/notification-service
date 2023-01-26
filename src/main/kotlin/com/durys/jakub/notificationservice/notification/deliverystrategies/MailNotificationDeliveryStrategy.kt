@@ -5,8 +5,9 @@ import com.durys.jakub.notificationservice.external.mail.Mail
 import com.durys.jakub.notificationservice.external.mail.MailServiceClient
 import com.durys.jakub.notificationservice.infrastructure.out.Notification
 import com.durys.jakub.notificationservice.notification.TenantId
+import org.springframework.stereotype.Service
 
-
+@Service
 internal class MailNotificationDeliveryStrategy(private val mailServiceClient: MailServiceClient,
                                                 private val accessManagementServiceClient: AccessManagementServiceClient): NotificationDeliveryStrategy {
 
