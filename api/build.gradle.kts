@@ -22,23 +22,12 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
-	implementation("org.springframework.boot:spring-boot-starter-websocket")
-	implementation("org.springframework.boot:spring-boot-starter-reactor-netty")
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
-	implementation("io.netty:netty-all")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
-	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
-	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 
-dependencyManagement {
-	imports {
-		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-	}
-}
 
 tasks.withType<KotlinCompile> {
 	kotlinOptions {
