@@ -8,6 +8,7 @@ import com.durys.jakub.notificationservice.infrastructure.NotificationRepository
 import com.durys.jakub.notificationservice.infrastructure.out.Notification
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 import org.springframework.data.domain.Sort
+import org.springframework.scheduling.annotation.Async
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -17,7 +18,7 @@ internal class NotificationService(val notificationDeliveryStrategyFactory: Noti
 
 
 
-    fun process(notification: Notification) {
+    @Async fun process(notification: Notification) {
         notification.types.forEach {
             notificationDeliveryStrategyFactory.from(it).deliver(notification)
         }
