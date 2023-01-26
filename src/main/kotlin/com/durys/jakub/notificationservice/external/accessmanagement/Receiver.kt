@@ -1,3 +1,3 @@
 package com.durys.jakub.notificationservice.external.accessmanagement
 
-class Receiver(val email: String)
+internal class Receiver(val email: String)

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
 @Document
-class Notification(@Id val id: String,
+internal class Notification(@Id val id: String,
                    val tenantId: String,
                    val subject: String,
                    val content: String,

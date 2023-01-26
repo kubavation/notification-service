@@ -5,7 +5,7 @@ import com.durys.jakub.notificationservice.notification.TenantId
 import org.springframework.web.reactive.function.client.WebClient
 import reactor.core.publisher.Mono
 
-class TenantEmailNotFoundException(tenantId: TenantId?): RuntimeException("Tenant email of id ${tenantId?.value} not found")
+internal class TenantEmailNotFoundException(tenantId: TenantId?): RuntimeException("Tenant email of id ${tenantId?.value} not found")
 
 internal class AccessManagementServiceClient(private val webClient: WebClient) {
 

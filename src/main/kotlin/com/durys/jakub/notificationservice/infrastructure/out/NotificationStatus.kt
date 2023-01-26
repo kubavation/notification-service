@@ -1,5 +1,5 @@
 package com.durys.jakub.notificationservice.infrastructure.out
 
-enum class NotificationStatus {
+internal enum class NotificationStatus {
     ACTIVE, INACTIVE, DELETED
 }
