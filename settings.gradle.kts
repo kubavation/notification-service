@@ -1,2 +1,3 @@
 rootProject.name = "notification-service"
-include("domain")
+
+include("domain", "api")
