@@ -2,7 +2,7 @@ package com.durys.jakub.notificationservice.notification
 
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 
-class NotificationDTO(val tenantId: TenantId? = null,
+internal class NotificationDTO(val tenantId: TenantId? = null,
                       val subject: String? = null,
                       val content: String? = null,
                       val types: List<NotificationType> = listOf(NotificationType.APP)) {

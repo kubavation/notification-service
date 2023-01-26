@@ -1,3 +1,3 @@
 package com.durys.jakub.notificationservice.notification
 
-class TenantId(val value: String? = null)
+internal class TenantId(val value: String? = null)

@@ -6,7 +6,7 @@ import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.repository.MongoRepository
 import org.springframework.data.mongodb.repository.Query
 
-interface NotificationRepository: MongoRepository<Notification, String> {
+internal interface NotificationRepository: MongoRepository<Notification, String> {
 
     @Query("{'tenantId' : ?0}")
     fun findAllByTenant(tenantId: String, sort: Sort): List<Notification>
