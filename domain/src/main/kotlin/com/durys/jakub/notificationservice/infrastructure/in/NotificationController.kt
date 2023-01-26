@@ -3,7 +3,6 @@ package com.durys.jakub.notificationservice.infrastructure.`in`
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.NotificationService
-import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PatchMapping
 import org.springframework.web.bind.annotation.PathVariable

@@ -4,7 +4,6 @@ import com.durys.jakub.notificationservice.commons.NotificationAssembler
 import com.durys.jakub.notificationservice.infrastructure.NotificationRepository
 import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.NotificationService
-import com.durys.jakub.notificationservice.notification.NotificationType
 import mu.KotlinLogging
 import org.springframework.amqp.rabbit.annotation.RabbitListener
 import org.springframework.messaging.simp.SimpMessagingTemplate
