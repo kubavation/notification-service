@@ -18,7 +18,7 @@ internal class NotificationListener(
         private val notificationService: NotificationService,
         private val notificationRepository: NotificationRepository) {
 
-    @RabbitListener(queues = ["q.notification-queue"])
+    @RabbitListener(queues = ["\${queue.notification}"])
     fun listen(notificationDTO: NotificationDTO) {
 
         logger.info {
