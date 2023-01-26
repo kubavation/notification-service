@@ -5,7 +5,7 @@ import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.TenantId
 import java.util.UUID
 
-object NotificationAssembler {
+internal object NotificationAssembler {
 
     fun toEntity(dto: NotificationDTO): Notification {
         return Notification(UUID.randomUUID().toString(), dto.tenantId?.value!!, dto.subject!!, dto.content!!, dto.types)
