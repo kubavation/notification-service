@@ -5,23 +5,22 @@ import com.durys.jakub.notificationservice.external.accessmanagement.AccessManag
 import com.durys.jakub.notificationservice.external.mail.Mail
 import com.durys.jakub.notificationservice.external.mail.MailServiceClient
 import com.durys.jakub.notificationservice.infrastructure.NotificationRepository
+import com.durys.jakub.notificationservice.infrastructure.out.Notification
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 import org.springframework.data.domain.Sort
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-internal class NotificationService(val mailServiceClient: MailServiceClient,
-                                   val notificationRepository: NotificationRepository,
-                                   val accessManagementServiceClient: AccessManagementServiceClient) {
+internal class NotificationService(val notificationDeliveryStrategyFactory: NotificationDeliveryStrategyFactory,
+                                   val notificationRepository: NotificationRepository,) {
 
 
-    fun processEmail(notificationDTO: NotificationDTO) {
-        accessManagementServiceClient.receiverEmail(notificationDTO.tenantId)
-                .map { Mail(notificationDTO.subject, notificationDTO.content, it) }
-                .flatMap { mailServiceClient.send(it) }
-                .onErrorComplete()
-                .block()
+
+    fun process(notification: Notification) {
+        notification.types.forEach {
+            notificationDeliveryStrategyFactory.from(it).deliver(notification)
+        }
     }
 
     fun findAllByTenantIdAndStatus(tenantId: String, status: NotificationStatus): List<NotificationDTO> {
