@@ -1,14 +1,12 @@
 package com.durys.jakub.notificationservice.notification
 
-import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 
-internal class NotificationDTO(val tenantId: TenantId? = null,
+class NotificationDTO(val tenantId: TenantId? = null,
                       val subject: String? = null,
                       val content: String? = null,
                       val types: List<NotificationType> = listOf(NotificationType.APP)) {
 
     var id: String = "";
-    var status: NotificationStatus = NotificationStatus.ACTIVE
     var url = ""
 
     fun withUrl(value: String): NotificationDTO {
