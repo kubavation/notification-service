@@ -8,6 +8,7 @@ plugins {
 }
 
 group = "com.durys.jakub"
+
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
@@ -18,12 +19,14 @@ repositories {
 extra["springCloudVersion"] = "2021.0.5"
 
 dependencies {
+	implementation(project(":domain"))
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.springframework.boot:spring-boot-starter-amqp")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
+
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
