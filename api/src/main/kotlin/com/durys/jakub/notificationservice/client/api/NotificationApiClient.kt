@@ -1,6 +1,6 @@
 package com.durys.jakub.notificationservice.client.api
 
-import com.durys.jakub.notificationservice.notification.NotificationDTO
+import com.durys.jakub.notificationservice.client.model.NotificationDTO
 import org.springframework.amqp.rabbit.core.RabbitTemplate
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
