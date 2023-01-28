@@ -1,8 +1,5 @@
 package com.durys.jakub.notificationservice.client.model
 
-import com.durys.jakub.notificationservice.notification.NotificationType
-import com.durys.jakub.notificationservice.notification.TenantId
-
 class NotificationDTO(val tenantId: TenantId? = null,
                       val subject: String? = null,
                       val content: String? = null,
