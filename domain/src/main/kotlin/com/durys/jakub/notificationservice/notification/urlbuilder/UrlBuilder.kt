@@ -11,7 +11,5 @@ object UrlBuilder {
 
     private const val Link = "<a";
 
-    fun build(url: String): String {
-        return Link.href(url).label("Link to application").build()
-    }
+    fun build(url: String) = Link.href(url).label("Link to application").build()
 }
