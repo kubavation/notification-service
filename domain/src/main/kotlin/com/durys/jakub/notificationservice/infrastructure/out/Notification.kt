@@ -10,20 +10,16 @@ internal class Notification(@Id val id: String,
                    val tenantId: String,
                    val subject: String,
                    val content: String,
+                   val redirectionUrl: String?,
                    val types: List<NotificationType>) {
 
     var status: NotificationStatus = NotificationStatus.ACTIVE
     val creationDate: LocalDateTime = LocalDateTime.now()
-    var redirectionUrl: String? = "";
 
     fun withStatus(status: NotificationStatus): Notification {
         this.status = status
         return this
     }
 
-    fun withRedirection(url: String): Notification {
-        this.redirectionUrl = url
-        return this
-    }
 
 }
