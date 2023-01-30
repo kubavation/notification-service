@@ -1,3 +1,12 @@
 package com.durys.jakub.notificationservice.external.mail
 
-internal class Mail(val subject: String?, val content: String?, val destination: String?)
+import com.durys.jakub.notificationservice.notification.urlbuilder.UrlBuilder
+
+internal class Mail(val subject: String?, val content: String?, url: String?) {
+
+    val destination: String?
+
+    init {
+        this.destination = url?.let { UrlBuilder.build(it) }
+    }
+}

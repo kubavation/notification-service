@@ -8,7 +8,7 @@ import java.util.UUID
 internal object NotificationAssembler {
 
     fun toEntity(dto: NotificationDTO): Notification {
-        return Notification(UUID.randomUUID().toString(), dto.tenantId?.value!!, dto.subject!!, dto.content!!, dto.types)
+        return Notification(UUID.randomUUID().toString(), dto.tenantId?.value!!, dto.subject!!, dto.content!!, dto.url, dto.types)
     }
 
     fun toDTO(entity: Notification): NotificationDTO {
