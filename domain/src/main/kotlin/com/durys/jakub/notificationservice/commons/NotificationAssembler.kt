@@ -12,8 +12,7 @@ internal object NotificationAssembler {
     }
 
     fun toDTO(entity: Notification): NotificationDTO {
-        val dto = NotificationDTO(TenantId(entity.tenantId), entity.subject, entity.content, entity.types)
-        dto.id = entity.id
-        return dto
+       return NotificationDTO(TenantId(entity.tenantId), entity.subject, entity.content, entity.types)
+               .withId(entity.id)
     }
 }

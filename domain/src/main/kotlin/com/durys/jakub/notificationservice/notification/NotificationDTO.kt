@@ -14,5 +14,10 @@ class NotificationDTO(val tenantId: TenantId? = null,
         return this
     }
 
+    fun withId(id: String): NotificationDTO {
+        this.id = id
+        return this
+    }
+
     infix fun ofType(type: NotificationType) = types.contains(type)
 }
