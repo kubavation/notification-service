@@ -31,6 +31,7 @@ dependencies {
 	implementation("io.github.microutils:kotlin-logging-jvm:3.0.4")
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
 }
 
 
