@@ -12,7 +12,7 @@ internal class AccessManagementServiceClient(private val webClient: WebClient) {
     fun receiverEmail(tenantId: TenantId?): Mono<String> {
         return webClient
                 .get()
-                .uri("/users/%s/info".format(tenantId?.value))
+                .uri("/users/${tenantId?.value}/info")
                 .retrieve()
                 .bodyToMono(Receiver::class.java)
                 .onErrorMap { TenantEmailNotFoundException(tenantId) }
