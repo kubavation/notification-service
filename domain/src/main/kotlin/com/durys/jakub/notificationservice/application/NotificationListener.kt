@@ -6,14 +6,12 @@ import com.durys.jakub.notificationservice.notification.NotificationDTO
 import com.durys.jakub.notificationservice.notification.NotificationService
 import mu.KotlinLogging
 import org.springframework.amqp.rabbit.annotation.RabbitListener
-import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.stereotype.Service
 
 private val logger = KotlinLogging.logger {}
 
 @Service
 internal class NotificationListener(
-        private val messagingTemplate: SimpMessagingTemplate,
         private val notificationService: NotificationService,
         private val notificationRepository: NotificationRepository) {
 
