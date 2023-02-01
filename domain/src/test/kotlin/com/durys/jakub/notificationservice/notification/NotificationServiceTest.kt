@@ -5,7 +5,6 @@ import com.durys.jakub.notificationservice.infrastructure.out.Notification
 import com.durys.jakub.notificationservice.infrastructure.out.NotificationStatus
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
-import org.mockito.Mock
 import org.mockito.Mockito
 
 internal class NotificationServiceTest {
