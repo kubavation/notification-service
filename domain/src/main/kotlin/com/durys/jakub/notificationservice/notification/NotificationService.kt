@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 internal class NotificationService(val notificationDeliveryStrategyFactory: NotificationDeliveryStrategyFactory,
-                                   val notificationRepository: NotificationRepository,) {
+                                   val notificationRepository: NotificationRepository) {
 
 
 
